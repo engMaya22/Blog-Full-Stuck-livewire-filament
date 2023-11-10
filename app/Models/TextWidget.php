@@ -36,4 +36,4 @@ class TextWidget extends Model
         return $widget->content;
     }
 
-}//for haeder key and about-us-sider
+}//for header key and about-us-sider

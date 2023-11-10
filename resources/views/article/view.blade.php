@@ -18,7 +18,7 @@
                         </h1>
                         <p href="#" class="text-sm pb-8">
                             By <a href="#" class="font-semibold hover:text-gray-800">{{$article->user->name}}</a>, Published on
-                            {{$article->getFormattedDate()}}   
+                            {{$article->getFormattedDate()}}   | {{ $article->human_read_time }}
                         </p>
                         <div>
                             {!! $article->content !!}
