@@ -23,7 +23,9 @@
                         <div>
                             {!! $article->content !!}
                         </div>               
-                     </div>
+                     </div> 
+                     <x-upvote-downvote :article="$article" />
+
             </article>
 
             <div class="w-full flex pt-6">

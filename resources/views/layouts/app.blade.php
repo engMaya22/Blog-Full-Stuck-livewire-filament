@@ -38,7 +38,7 @@
                Task Blog
             </a>
             <p class="text-lg text-gray-600">
-                this is a task blog
+                {{ \App\Models\TextWidget::getTitle('header') }}
             </p>
         </div>
     </header>
@@ -58,6 +58,7 @@
         <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div
                 class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-between text-sm font-bold uppercase mt-0 px-6 py-2">
+               
                 <div>
                     <a href="{{route('home')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Home</a>
                     @foreach($categories as $category)
@@ -65,6 +66,9 @@
                         href="{{route('by-category', $category)}}"
                            class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">{{$category->name}}</a>
                     @endforeach
+                    {{-- <a href="{{route('about-us')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">About
+                        us
+                    </a> --}}
                        
                 <div class="flex items-center">
                     @auth

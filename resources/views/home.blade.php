@@ -12,5 +12,5 @@
   
 
 </section>
+<x-side-bar/>
 </x-app-layout>
-{{-- AppLayout component is called by x-app-layout --}}

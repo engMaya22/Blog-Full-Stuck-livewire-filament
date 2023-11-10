@@ -23,9 +23,9 @@ class Sidebar extends Component
      */
     public function render(): View|Closure|string
     {
-             $categories = Category::withCount('articles')
-                ->orderByDesc('articles_count')
-                ->get();
+       $categories = Category::withCount('articles')
+                            ->orderByDesc('articles_count')
+                            ->get();
         return view('components.sidebar',compact('categories'));
     }
 }
