@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleView;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ArticleController extends Controller
@@ -25,7 +27,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
+    public function show(Article $article , Request $request)//we add request to catch auth user data && request data
     {
         if (!$article->active || $article->published_at > now()) {
             throw new NotFoundHttpException();
@@ -43,6 +45,15 @@ class ArticleController extends Controller
         ->orderBy('published_at', 'asc')
         ->limit(1)
         ->first();
+
+        $user = $request->user();
+        // dd( Auth::user());
+        ArticleView::create([
+            'ip_address' => $request->ip(),
+            'user_agent' => $request->userAgent(),
+            'article_id' => $article->id,
+            'user_id' => $user?->id//if user hasnot login
+        ]);
 
         return view('article.view',compact('article','next','prev'));
 

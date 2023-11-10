@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ArticleResource\Pages;
 use App\Filament\Resources\ArticleResource\RelationManagers;
+use App\Filament\Widgets\ArticleOverview;
 use App\Models\Article;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -116,4 +117,6 @@ class ArticleResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
+
+    
 }
