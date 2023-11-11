@@ -35,10 +35,10 @@ class Article extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function shortBody()
+   
+    public function shortBody($words = 30): string
     {
-         return  substr($this->content, 0, 100);
-
+        return Str::words(strip_tags($this->body), $words);
     }
 
     public function getFormattedDate(){

@@ -16,5 +16,11 @@ class Category extends Model
     public function articles(){
         return $this->hasMany(Article::class);
     }
+    public function publishedArticles()
+    {
+        return $this->belongsTo(Article::class)
+            ->whereActive(true)
+            ->whereDate('published_at', '<',now());
+    }
    
 }

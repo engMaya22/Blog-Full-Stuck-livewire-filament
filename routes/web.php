@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 //     })->name('dashboard');
 // });
 
-Route::get('/', [ArticleController::class, 'index'])->name('home');
+Route::get('/', [ArticleController::class, 'home'])->name('home');
 Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->name('by-category');
 Route::get('/{article}', [ArticleController::class, 'show'])->name('view');
 Route::get('/about-us', [SiteController::class, 'about'])->name('about-us');
